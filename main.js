@@ -4,11 +4,24 @@
 // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l'utente ha inserito un numero consentito; in altre parole, deve comunicare all'utente quante giocate ha fatto prima di perdere.
 
 // generare 16 numeri casuali:
+var arrayRandom =[];
 
-var randomNumber = Math.floor(Math.random()*100)+1 ;
-
-//console.log(numberPc);
-
-for (var i = 0; i <= 16 ; i++) {
-    console.log(numberPc);
+for (var i = 0; i < 16 ; i++) {
+    //numero tra 1 e 100
+    arrayRandom.push(Math.floor(Math.random()*100)+1);
+    var listaMine = arrayRandom[i]
+    console.log('Numero random '+ i + ': ' + listaMine);
 }
+
+var next = true ; //altrimenti sarà un loop
+
+do {
+    var userNumber = parseInt(prompt('Inserisci un numero tra 1 e 100'));
+    if (listaMine.includes(userNumber)) {
+        //se il numero inserito dall'utente è presente nell'array la partita è finita
+        next = false;
+    }
+    else {
+        console.log('Inserisci un altro numero');
+    }
+} while (next);
