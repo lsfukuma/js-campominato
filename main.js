@@ -9,19 +9,30 @@ var arrayRandom =[];
 for (var i = 0; i < 16 ; i++) {
     //numero tra 1 e 100
     arrayRandom.push(Math.floor(Math.random()*100)+1);
-    var listaMine = arrayRandom[i]
+    var listaMine = parseInt(arrayRandom[i]);
     console.log('Numero random '+ i + ': ' + listaMine);
 }
 
-var next = true ; //altrimenti sarà un loop
+var next = true ; //altrimenti il ciclo non si fermerà -- utilizzare variabile booleana
 
 do {
     var userNumber = parseInt(prompt('Inserisci un numero tra 1 e 100'));
-    if (listaMine.includes(userNumber)) {
+    if (arrayRandom.includes(userNumber)) { //proprieta che si utilizza con array
         //se il numero inserito dall'utente è presente nell'array la partita è finita
         next = false;
+        console.log('Hai perso!');
     }
     else {
         console.log('Inserisci un altro numero');
     }
 } while (next);
+
+
+//fare un contattore dei tentativi
+
+var i = 0;
+do {
+    i++
+    console.log( 'Hai provato ' + i + ' volte.')
+}
+while (next);
